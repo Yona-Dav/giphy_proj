@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block title %}All Gifs{% endblock %}
+{% block content %}
+<h1>HOMEPAGE</h1><br>
+<a href="{% url 'all_categories' %}" class="btn btn-primary">All the categories</a>
+<div class="row">
+{% for gif in all_gifs %}
+    <div class="card" style="width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-title">{{gif.title}}</h5>
+        <h6 class="card-text">{{gif.uploader_name}}</h6>
+        <p class="card-text">Created at : {{gif.created_at}}</p>
+        <img class="card-img-top" src="{{gif.url}}" alt="Card image cap">
+        <a href="{% url 'single_gif' gif.id %}" class="btn btn-primary">See more</a>
+      </div>
+    </div>
+{% endfor %}
+</div>
+{% endblock %}
