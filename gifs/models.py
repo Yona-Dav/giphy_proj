@@ -7,7 +7,7 @@ class Gif(models.Model):
     url = models.URLField()
     uploader_name = models.CharField(max_length=100)
     created_at = models.DateTimeField(auto_now_add=True)
-    likes = models.IntegerField(default=0, null=True)
+    likes = models.IntegerField(default=0)
 
     def __str__(self):
         return self.title
